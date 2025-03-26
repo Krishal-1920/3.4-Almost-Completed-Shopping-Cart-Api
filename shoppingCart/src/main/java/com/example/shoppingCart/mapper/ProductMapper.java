@@ -1,11 +1,15 @@
 package com.example.shoppingCart.mapper;
 
 import com.example.shoppingCart.entity.Product;
+import com.example.shoppingCart.entity.User;
 import com.example.shoppingCart.model.ProductModel;
+import com.example.shoppingCart.model.UserModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
@@ -30,4 +34,6 @@ public interface ProductMapper {
 
     // Model To Entity
     Product updateProductModel(ProductModel productModel, @MappingTarget Product product);
+
+    List<ProductModel> productListToProductModelList(List<Product> productList);
 }

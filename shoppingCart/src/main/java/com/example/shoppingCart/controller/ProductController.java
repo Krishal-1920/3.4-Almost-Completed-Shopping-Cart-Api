@@ -43,21 +43,6 @@ public class ProductController {
     }
 
 
-    // Get Product By Name
-    @GetMapping("/getByName/{name}")
-    public ResponseEntity<List<ProductModel>> getByName(@PathVariable String name){
-        List<ProductModel> products = productService.findProductByName(name);
-        return ResponseEntity.ok(products);
-    }
-
-
-    @GetMapping("/category")
-    public ResponseEntity<List<ProductModel>> getByCategory(@RequestParam String category) {
-        List<ProductModel> products = productService.findProductByCategory(category);
-        return ResponseEntity.ok(products);
-    }
-
-
     // Delete Product By ID
     @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
@@ -75,4 +60,42 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProduct(id, productModel));
     }
 
+
+    @GetMapping("/search")
+    public List<ProductModel> searchProducts(@RequestParam(required = false) String search) {
+        return productService.searchProducts(search);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// Get Product By Name
+@GetMapping("/getByName/{name}")
+public ResponseEntity<List<ProductModel>> getByName(@PathVariable String name){
+    List<ProductModel> products = productService.findProductByName(name);
+    return ResponseEntity.ok(products);
+}
+
+
+@GetMapping("/category")
+public ResponseEntity<List<ProductModel>> getByCategory(@RequestParam String category) {
+    List<ProductModel> products = productService.findProductByCategory(category);
+    return ResponseEntity.ok(products);
+}*/

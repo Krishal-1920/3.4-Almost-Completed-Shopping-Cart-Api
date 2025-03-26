@@ -7,6 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring") // "spring" integrates with Spring DI
 public interface UserMapper {
 
@@ -19,6 +21,8 @@ public interface UserMapper {
     // Model To Entity
     @Mapping(target="userRoles", ignore = true)
     User userModelToUser(UserModel userModel);
+
+    List<UserModel> userListToUserModelList(List<User> userList);
 
     // Model To Entity
     User updateUserModel(UserModel userModel, @MappingTarget User user);
