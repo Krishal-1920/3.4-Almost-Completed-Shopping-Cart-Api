@@ -20,4 +20,9 @@ public class RoleController {
     public ResponseEntity<List<RoleModel>> fetchingAllRoles(){
         return ResponseEntity.ok(roleService.getAllRoles());
     }
+
+    @GetMapping("/getById")
+    public ResponseEntity<RoleModel> fetchById(Long roleId){
+        return ResponseEntity.ok(roleService.fetchById(roleId));
+    }
 }
