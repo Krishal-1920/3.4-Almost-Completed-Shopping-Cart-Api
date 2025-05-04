@@ -22,4 +22,9 @@ public class RoleService {
         return roleMapper.rolesToRolesModel(allRoles);
     }
 
+    public RoleModel fetchById(Long roleId){
+        Role id = roleRepository.findById(roleId);
+        return roleMapper.rolesToRolesModel(roleId);
+    }
+
 }
